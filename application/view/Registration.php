@@ -28,7 +28,7 @@ $arrMsYearData  = $objMsYear->fetchAllYear();
     <div>
         <h1>Register Form</h1>
 
-        <form action="../controller/RegistrationController.php" method="post" name="registerUser">
+        <form action="../controller/SignUpController.php" method="post" name="registerUser">
             First Name : <input type="text" name="firstName" required size="32"><br><br>
             Last Name : <input type="text" name="lastName" size="32" required><br><br>
             Email : <input type="email" name="email" id="email" size="32" required><br><br>

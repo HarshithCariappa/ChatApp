@@ -7,7 +7,7 @@
  */
 
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/utilities/DatabaseConnection.php');
-require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/utilities/Constant.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/utilities/Constants.php');
 
 
 class AppUser
