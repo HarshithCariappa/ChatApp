@@ -6,8 +6,7 @@
 </head>
 <body>
 <div>
-    <h1>I LOVE YOU SHWETHA</h1>
-    <h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp with love Harshith</h2>
+    <h1>page under construction</h1>
 </div>
 </body>
 </html>
