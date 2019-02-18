@@ -6,7 +6,9 @@
 </head>
 <body>
 <div>
-    <h1>page under construction</h1>
+    <h1>Chats</h1>
+    <button onclick="location.href='Contacts.php'">Contacts</button>
+    </center>
 </div>
 </body>
 </html>
