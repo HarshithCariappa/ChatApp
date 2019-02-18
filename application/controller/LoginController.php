@@ -8,7 +8,7 @@
 
 // required classes.
 require_once $_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/AppUser.php';
-require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/Controller/PageRedirector.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/controller/PageRedirector.php');
 
 /**
  * If post value is set then.

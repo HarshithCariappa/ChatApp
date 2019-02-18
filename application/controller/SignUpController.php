@@ -8,8 +8,8 @@
 
 
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/AppUser.php');
-require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/Controller/LoginController.php');
-require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/Controller/PageRedirector.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/controller/LoginController.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/controller/PageRedirector.php');
 
 $objSignUpController = new SignUpController();
 $objSignUpController->validateUserData();
