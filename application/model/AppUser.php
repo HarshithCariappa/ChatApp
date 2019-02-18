@@ -103,4 +103,24 @@ class AppUser
             return false;
         }
     }
+
+    public function fetchUserByUID($uid)
+    {
+        // database connection
+        $dbConnectorObject = new DatabaseConnection();
+        $dbConnection = $dbConnectorObject->getConnection();
+
+        // query to fetch user by usn.
+        $fetchByUSNSql = "SELECT * FROM appuser WHERE UID = '$uid' AND Active = ".Constants::ACTIVE;
+
+        // run the query to fetch the user object by usn.
+        $objAppuser = $dbConnection->query($fetchByUSNSql);
+
+        if($objAppuser)
+        {
+            return $objAppuser->fetch_assoc();
+        }else{
+            return false;
+        }
+    }
 }

@@ -15,3 +15,7 @@ INSERT INTO `chatapp`.`msbranch` (`BranchId`, `BranchAbbrivation`, `BranchName`,
 INSERT INTO `chatapp`.`msbranch` (`BranchId`, `BranchAbbrivation`, `BranchName`, `Active`) VALUES ('3', 'ME', 'Mechanical Engineering', '1');
 INSERT INTO `chatapp`.`msbranch` (`BranchId`, `BranchAbbrivation`, `BranchName`, `Active`) VALUES ('4', 'CV', 'Civil Engineering', '1');
 INSERT INTO `chatapp`.`msbranch` (`BranchId`, `BranchAbbrivation`, `BranchName`, `Active`) VALUES ('5', 'EC', 'Electronics And Communication', '1');
+
+
+INSERT INTO `chatapp`.`cfgconversations` (`ConversationID`, `FromUID`, `ToUID`) VALUES ('1', '1', '8');
+INSERT INTO `chatapp`.`cfgmessages` (`MessageId`, `ConversationId`, `SenderUID`, `Message`, `Read`) VALUES ('1', '1', '1', 'Hello', '1');

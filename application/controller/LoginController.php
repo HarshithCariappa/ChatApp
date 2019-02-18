@@ -59,7 +59,7 @@ class LoginController
         if($objAppUser){
             // Put all the required values into session.
             session_start();
-            $_SESSION['UserId'] = $objAppUser['UID'];
+            $_SESSION["UID"] = $objAppUser['UID'];
 
             $objPageRedirector->redirectToChatsPage();
         }
