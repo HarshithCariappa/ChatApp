@@ -104,6 +104,11 @@ class AppUser
         }
     }
 
+    /**
+     * This method fetches the user by UID.
+     * @param $uid
+     * @return array|bool
+     */
     public function fetchUserByUID($uid)
     {
         // database connection
@@ -115,6 +120,32 @@ class AppUser
 
         // run the query to fetch the user object by usn.
         $objAppuser = $dbConnection->query($fetchByUSNSql);
+
+        if($objAppuser)
+        {
+            return $objAppuser->fetch_assoc();
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * Method to fetch the data by yearId and BranchId.
+     * @param $branchID
+     * @param $yearID
+     * @return array|bool
+     */
+    public function fetchByBranchIdYearId($branchID, $yearID)
+    {
+        // database connection
+        $dbConnectorObject = new DatabaseConnection();
+        $dbConnection = $dbConnectorObject->getConnection();
+
+        // query to fetch user by usn.
+        $fetchByBranchAndYearSql = "SELECT * FROM appuser WHERE BranchId = '$branchID' AND YearID = '$yearID' AND Active = ".Constants::ACTIVE." ORDER BY FirstName ";
+
+        // run the query to fetch the user object by usn.
+        $objAppuser = $dbConnection->query($fetchByBranchAndYearSql);
 
         if($objAppuser)
         {

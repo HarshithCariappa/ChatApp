@@ -56,7 +56,7 @@ class MsBranch
         // check if the query result has at least 1 row.
         if($objMSBranch->num_rows > 0)
         {
-            return $objMSBranch;
+            return $objMSBranch->fetch_assoc();
         }
 
         return false;

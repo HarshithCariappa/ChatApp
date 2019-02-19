@@ -22,15 +22,36 @@ class MsYear
         $dbConnection = $dbConnectorObject->getConnection();
 
         // Query to fetch all active years.
-        $fetchAllGenderSQL = "SELECT * FROM msyear WHERE Active = ".Constants::ACTIVE;
+        $fetchAllYearSQL = "SELECT * FROM msyear WHERE Active = ".Constants::ACTIVE;
 
         // run the sql query to fetch all branches.
-        $objMSGender = $dbConnection->query($fetchAllGenderSQL);
+        $objMSYear = $dbConnection->query($fetchAllYearSQL);
 
         // check if the query result has at least 1 row.
-        if($objMSGender->num_rows > 0)
+        if($objMSYear->num_rows > 0)
         {
-            return $objMSGender;
+            return $objMSYear;
+        }
+
+        return false;
+    }
+
+    public function fetchByYearId($yearId)
+    {
+        // database connection
+        $dbConnectorObject = new DatabaseConnection();
+        $dbConnection = $dbConnectorObject->getConnection();
+
+        // Query to fetch all active years.
+        $fetchYearByIdSQL = "SELECT * FROM msyear WHERE YearId = '$yearId' AND Active = ".Constants::ACTIVE;
+
+        // run the sql query to fetch all branches.
+        $objMSYear = $dbConnection->query($fetchYearByIdSQL);
+
+        // check if the query result has at least 1 row.
+        if($objMSYear->num_rows > 0)
+        {
+            return $objMSYear->fetch_assoc();
         }
 
         return false;
