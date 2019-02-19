@@ -14,7 +14,7 @@
     <h1>Messages</h1>
     <button onclick="location.href='Chats.php'">Chats</button><br><br>
 
-    <form action="../controller/ContactsController.php" method="post" name="contacts">
+    <form action="ChatBox.php" method="post" name="contacts">
 
     </form>
 </div>

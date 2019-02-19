@@ -131,25 +131,26 @@ class AppUser
 
     /**
      * Method to fetch the data by yearId and BranchId.
+     * fetch all except the user data
      * @param $branchID
      * @param $yearID
      * @return array|bool
      */
-    public function fetchByBranchIdYearId($branchID, $yearID)
+    public function fetchByBranchIdYearId($branchID, $yearID, $uid)
     {
         // database connection
         $dbConnectorObject = new DatabaseConnection();
         $dbConnection = $dbConnectorObject->getConnection();
 
         // query to fetch user by usn.
-        $fetchByBranchAndYearSql = "SELECT * FROM appuser WHERE BranchId = '$branchID' AND YearID = '$yearID' AND Active = ".Constants::ACTIVE." ORDER BY FirstName ";
+        $fetchByBranchAndYearSql = "SELECT * FROM appuser WHERE BranchId = '$branchID' AND YearID = '$yearID' AND UID != '$uid' AND Active = ".Constants::ACTIVE." ORDER BY FirstName ";
 
         // run the query to fetch the user object by usn.
         $objAppuser = $dbConnection->query($fetchByBranchAndYearSql);
 
-        if($objAppuser)
+        if($objAppuser->num_rows > 0)
         {
-            return $objAppuser->fetch_assoc();
+            return $objAppuser;
         }else{
             return false;
         }
