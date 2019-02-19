@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Chats Page</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Chats Page</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
     <body>
         <div>
             <h1>Chats</h1>
-            <button onclick="location.href='Contacts.php'">Contacts</button>
+            <div>
+                <button onclick="location.href='Contacts.php'">Contacts</button>
+                <button style="float: right" onclick="location.href='../controller/LogoutController.php'">Logout</button>
+            </div>
             <?php
 
             require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/controller/ChatsController.php');

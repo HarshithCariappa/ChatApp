@@ -8,11 +8,15 @@
 
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <body>
 <div>
     <h1>Messages</h1>
-    <button onclick="location.href='Chats.php'">Chats</button><br><br>
+    <div>
+        <button onclick="location.href='Chats.php'">Chats</button>
+        <button style="float: right" onclick="location.href='../controller/LogoutController.php'">Logout</button>
+    </div>
 
     <form action="ChatBox.php" method="post" name="contacts">
 

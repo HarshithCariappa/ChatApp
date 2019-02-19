@@ -20,8 +20,11 @@ $arrMsYearData  = $objMsYear->fetchAllYear();
 
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <title>Contacts Page</title>
         <style>
             table, th, td {
                 border: 1px solid black;
@@ -36,7 +39,10 @@ $arrMsYearData  = $objMsYear->fetchAllYear();
     <body>
         <div>
             <h1>Contacts</h1>
-            <button onclick="location.href='Chats.php'">Chats</button><br><br>
+            <div>
+                <button onclick="location.href='Chats.php'">Chats</button>
+                <button style="float: right" onclick="location.href='../controller/LogoutController.php'">Logout</button>
+            </div><br>
 
             <form action="Contacts.php" method="post" name="contacts" id="contacts">
                 Branch :
