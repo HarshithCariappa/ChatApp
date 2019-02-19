@@ -36,6 +36,11 @@ class MsYear
         return false;
     }
 
+    /**
+     * Method to fetch data by Year ID.
+     * @param $yearId
+     * @return array|bool
+     */
     public function fetchByYearId($yearId)
     {
         // database connection
