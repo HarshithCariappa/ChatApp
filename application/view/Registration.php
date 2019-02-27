@@ -67,7 +67,7 @@ $arrMsYearData  = $objMsYear->fetchAllYear();
 
             <input type="submit" value="SIGNUP" ><br><br>
 
-            <a href="login.php">Login</a>
+            <a href="Login.php">Login</a>
         </form>
     </div>
 

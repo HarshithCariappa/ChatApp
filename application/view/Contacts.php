@@ -97,6 +97,10 @@ $arrMsYearData  = $objMsYear->fetchAllYear();
                         <th>LastSeen</th>
                         <th>Online</th>
                       </tr>";
+                if(!$arrAppUsers)
+                {
+                    return;
+                }
                 while ($appUser = $arrAppUsers->fetch_assoc())
                 {
                     echo "<tr>

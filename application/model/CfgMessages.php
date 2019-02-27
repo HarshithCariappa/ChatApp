@@ -46,10 +46,9 @@ class CfgMessages
 
         $objCfgMessages = $dbConnection->query($insertCfgMessageQuery);
 
-        // check if the query result has more than 1 item.
-        if($objCfgMessages->num_rows > 0)
+        if($objCfgMessages)
         {
-            return $objCfgMessages->fetch_assoc();
+            return $objCfgMessages;
         }
         return false;
     }

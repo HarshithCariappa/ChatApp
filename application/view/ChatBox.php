@@ -40,20 +40,21 @@ $arrCfgMessages = $objChatBoxControllerClass->fetchMessagesByUsers($userUID, $ch
     <form action="../controller/ChatBoxController.php" method="post">
         <?php
 
-        echo "<br><br>";
-        echo "<table style='width:50%'>";
+        if($arrCfgMessages) {
+            echo "<br><br>";
+            echo "<table style='width:50%'>";
 
-        while ($chats = $arrCfgMessages->fetch_assoc()){
-            echo "<tr>";
-            if($userUID == $chats['SenderUID'])
-            {
-                echo "<td align='left' bgcolor='#7fffd4'>{$chats['Message']}</td>";
-            }else{
-                echo "<td align='right' bgcolor='#f0ffff'>{$chats['Message']}</td>";
+            while ($chats = $arrCfgMessages->fetch_assoc()) {
+                echo "<tr>";
+                if ($userUID == $chats['SenderUID']) {
+                    echo "<td align='left' bgcolor='#7fffd4'>{$chats['Message']}</td>";
+                } else {
+                    echo "<td align='right' bgcolor='#f0ffff'>{$chats['Message']}</td>";
+                }
+                echo "</tr>";
             }
-            echo "</tr>";
+            echo "</table><br>";
         }
-        echo "</table><br>";
         ?>
 
         <input type='text' name='message' placeholder='Type your message here'>

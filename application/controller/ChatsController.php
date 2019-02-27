@@ -18,6 +18,11 @@ class ChatsController
 
         $arrChats = array();
 
+        if(!$arrConversations)
+        {
+            return $arrChats;
+        }
+
         while( $cfgConversation = $arrConversations->fetch_assoc() ){
 
             $objAppUserClass = new AppUser();

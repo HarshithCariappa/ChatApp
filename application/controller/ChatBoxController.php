@@ -10,7 +10,10 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/CfgConversat
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/CfgMessages.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/controller/PageRedirector.php');
 
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
 
 if(isset($_POST['message'])){
     $objChatBoxControllerClass = new ChatBoxController();
