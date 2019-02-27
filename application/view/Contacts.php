@@ -6,6 +6,7 @@
  * Time: 12:03 AM
  */
 
+session_start();
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/MsBranch.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/MsYear.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/AppUser.php');
@@ -78,7 +79,6 @@ $arrMsYearData  = $objMsYear->fetchAllYear();
             </form>
 
             <?php
-                session_start();
 
                 if(!isset($_POST['branchId']))
                 {

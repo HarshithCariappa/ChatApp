@@ -5,9 +5,9 @@
  * Date: 2/13/2019
  * Time: 12:03 AM
  */
+session_start();
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/controller/ChatBoxController.php');
 
-session_start();
 $chatUID = $_REQUEST['UID'];
 $userUID = $_SESSION['UID'];
 

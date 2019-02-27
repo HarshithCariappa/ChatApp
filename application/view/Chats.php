@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,8 +24,6 @@
             require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/controller/ChatsController.php');
             require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/MsBranch.php');
             require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/MsYear.php');
-
-            session_start();
 
             $objChatsControllerClass = new ChatsController();
             $arrAppUsers = $objChatsControllerClass->fetchAllConversations($_SESSION["UID"]);
