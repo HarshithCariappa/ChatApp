@@ -30,4 +30,11 @@ class PageRedirector
                   </script>";
         exit();
     }
+
+    public function redirectToChatBox($chatUID){
+        echo "<script> 
+                    window.location.href='../view/ChatBox.php?UID=$chatUID';
+                  </script>";
+        exit();
+    }
 }

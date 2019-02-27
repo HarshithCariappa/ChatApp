@@ -12,6 +12,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/utilities/Constant
 
 class AppUser
 {
+    const ACTIVE = 1;
     /**
      * Method to fetch the users by usn and password
      * If user do not exists or is inactive send false, else send the user object.
@@ -154,5 +155,17 @@ class AppUser
         }else{
             return false;
         }
+    }
+
+    public function changeUserOnlineStatus($UID, $onlineStatus)
+    {
+        // database connection
+        $dbConnectorObject = new DatabaseConnection();
+        $dbConnection = $dbConnectorObject->getConnection();
+
+        $insertUserSql = "UPDATE TABLE appuser SET Online = '$onlineStatus'";
+
+        // run the insert query to add this user into the database.
+        return $dbConnection->query($insertUserSql);
     }
 }

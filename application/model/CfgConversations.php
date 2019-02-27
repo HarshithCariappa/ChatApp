@@ -35,4 +35,44 @@ class CfgConversations
         }
         return false;
     }
+
+    public function fetchConversationByUsers($userUId, $chatUID)
+    {
+        // db connection
+        $dbConnectorObject = new DatabaseConnection();
+        $dbConnection = $dbConnectorObject->getConnection();
+
+        // query to fetch all the chats related to this user.
+        $fetchConversationQuery = "SELECT * FROM cfgconversations WHERE '$userUId' IN (FromUID , ToUID) AND '$chatUID' IN (FromUID, ToUID) AND Active = ".Constants::ACTIVE;
+
+        // run the sql query to fetch all chats.
+        $objCfgConversation = $dbConnection->query($fetchConversationQuery);
+
+        // check if the query result has more than 1 item.
+        if($objCfgConversation->num_rows > 0)
+        {
+            return $objCfgConversation->fetch_assoc();
+        }
+        return false;
+    }
+
+    public function saveConversation($fromUID, $toUID)
+    {
+        // db connection
+        $dbConnectorObject = new DatabaseConnection();
+        $dbConnection = $dbConnectorObject->getConnection();
+
+        // query to fetch all the chats related to this user.
+        $insertConversationQuery = "INSERT INTO cfgconversations (FromUID, ToUID) VALUES ('$fromUID', '$toUID')";
+
+        // run the sql query to fetch all chats.
+        $objCfgConversation = $dbConnection->query($insertConversationQuery);
+
+        // check if the query result has more than 1 item.
+        if($objCfgConversation->num_rows > 0)
+        {
+            return $objCfgConversation->fetch_assoc();
+        }
+        return false;
+    }
 }

@@ -35,4 +35,22 @@ class CfgMessages
         }
         return false;
     }
+
+    public function saveChatMessage($conversationId, $senderUID, $message)
+    {
+        // db connection
+        $dbConnectorObject = new DatabaseConnection();
+        $dbConnection = $dbConnectorObject->getConnection();
+
+        $insertCfgMessageQuery = "INSERT INTO cfgmessages (ConversationId, SenderUID, Message) VALUES ('$conversationId', '$senderUID', '$message')";
+
+        $objCfgMessages = $dbConnection->query($insertCfgMessageQuery);
+
+        // check if the query result has more than 1 item.
+        if($objCfgMessages->num_rows > 0)
+        {
+            return $objCfgMessages->fetch_assoc();
+        }
+        return false;
+    }
 }
