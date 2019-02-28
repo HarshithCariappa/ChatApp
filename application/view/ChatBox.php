@@ -16,12 +16,16 @@ $_SESSION['chatUID'] = $chatUID;
 $objChatBoxControllerClass = new ChatBoxController();
 $arrCfgMessages = $objChatBoxControllerClass->fetchMessagesByUsers($userUID, $chatUID);
 
+$page = $_SERVER['PHP_SELF'].'?UID='.$chatUID;
+$sec = "10";
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<!--    <meta >-->
+    <meta charset="UTF-8" http-equiv="refresh" content="<?php echo $sec?>;URL='<?php echo $page?>'">
     <title>Chat Box</title>
     <style>
         table, th{
