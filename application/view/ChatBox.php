@@ -5,26 +5,35 @@
  * Date: 2/13/2019
  * Time: 12:03 AM
  */
+
+// started the session to get the UID stored in it.
 session_start();
+
+// these are the files required in this page.
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/controller/ChatBoxController.php');
 
+// get the UID sent by post to this page.
 $chatUID = $_REQUEST['UID'];
+
+// fetch the UID of the user who is using the app from the session.
 $userUID = $_SESSION['UID'];
 
+// set the UID of the person with whom the user is chatting woih in the session.
 $_SESSION['chatUID'] = $chatUID;
 
+// fetch all the messages between the user and the person with whom the user is chatting.
 $objChatBoxControllerClass = new ChatBoxController();
 $arrCfgMessages = $objChatBoxControllerClass->fetchMessagesByUsers($userUID, $chatUID);
 
+// to refresh the page every 20 seconds, which will reload the chats.
 $page = $_SERVER['PHP_SELF'].'?UID='.$chatUID;
-$sec = "10";
+$sec = "20";
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--    <meta >-->
     <meta charset="UTF-8" http-equiv="refresh" content="<?php echo $sec?>;URL='<?php echo $page?>'">
     <title>Chat Box</title>
     <style>
@@ -48,6 +57,7 @@ $sec = "10";
             echo "<br><br>";
             echo "<table style='width:50%'>";
 
+            // loop all the messages and display if right of left of the table based on the sender.
             while ($chats = $arrCfgMessages->fetch_assoc()) {
                 echo "<tr>";
                 if ($userUID == $chats['SenderUID']) {

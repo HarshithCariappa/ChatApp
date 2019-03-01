@@ -6,19 +6,20 @@
  * Time: 12:03 AM
  */
 
+// These are the files required in this page.
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/MsBranch.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/MsGender.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/chatapp/application/model/MsYear.php');
 
-// fetch all available branches.
+// fetch all available branches. To show in the Branch drop down.
 $objMsbranch = new MsBranch();
 $arrMsbranchData = $objMsbranch->fetchAllBranches();
 
-// fetch all genders.
+// fetch all genders. To show in the Gender drop down.
 $objMsGender = new MsGender();
 $arrMsGenderData = $objMsGender->fetchAllGender();
 
-// fetch all available year.
+// fetch all available year. To show in the Year drop down.
 $objMsYear = new MsYear();
 $arrMsYearData  = $objMsYear->fetchAllYear();
 
@@ -36,6 +37,7 @@ $arrMsYearData  = $objMsYear->fetchAllYear();
             Branch :
             <select name='branchId' id='branchId' style='width: 238px'>
                 <?php
+                    // fetch all branches by looping.
                     while ($branch = $arrMsbranchData->fetch_assoc()){
                         echo "<option value=".$branch['BranchId'].">".$branch['BranchAbbrivation']."</option>";
                     }
@@ -45,6 +47,7 @@ $arrMsYearData  = $objMsYear->fetchAllYear();
             Year :
             <select name='yearId' id='yearId' style='width: 238px'>
                 <?php
+                    // fetch all year by looping.
                     while ($year = $arrMsYearData->fetch_assoc()){
                         echo "<option value=".$year['YearId'].">".$year['Year']."</option>";
                     }
@@ -56,6 +59,7 @@ $arrMsYearData  = $objMsYear->fetchAllYear();
             Gender :
             <select name='genderId' id='genderId' style='width: 238px'>
                 <?php
+                    // fetch all gender by looping.
                     while ($gender = $arrMsGenderData->fetch_assoc()){
                         echo "<option value=".$gender['GenderID'].">".$gender['Gender']."</option>";
                     }
