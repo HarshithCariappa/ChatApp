@@ -69,9 +69,9 @@ class CfgConversations
         $objCfgConversation = $dbConnection->query($insertConversationQuery);
 
         // check if the query result has more than 1 item.
-        if($objCfgConversation && $objCfgConversation->num_rows > 0)
+        if($objCfgConversation)
         {
-            return $objCfgConversation->fetch_assoc();
+            return $objCfgConversation;
         }
         return false;
     }
