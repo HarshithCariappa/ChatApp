@@ -33,8 +33,12 @@ class ChatsController
                 $fetchUid = $cfgConversation['ToUID'];
             }
 
+            // fetch the user by UID. And check if the the user is found, If yes push it to array.
             $objAppUser = $objAppUserClass->fetchUserByUID($fetchUid);
-            array_push($arrChats, $objAppUser);
+            if($objAppUser)
+            {
+                array_push($arrChats, $objAppUser);
+            }
         }
 
         return $arrChats;
